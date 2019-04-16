@@ -1,0 +1,28 @@
+1.  A program computes by taking an input and produces an output
+2.  Input = Entering some data through an input device (keyboard,...)
+    Output = Output of the computed data
+3.  -Correctly
+    -Simply
+    -Efficiently
+4.  An expression computes a value from a number of operands
+5.  Same as an expression, but computes several values.
+6.  Variable used on the left-hand side of an assignemnt =.
+7.  A variable which value can't be changed accidentally after initialization.
+8.  A literal is a hard-coded value. But isn't represented through a variable.
+9.  Evaluated at compile time. A symbolic constant won't change (i.e. const).
+10. Magic constant only conveys the value, but the intent behind it, remains unclear
+    Maintaind such code is annoying, because you'd have to change the same number at several ocassions, instead of just one.
+11. +, ++, -, --, *, /.
+12. %
+13. <<, >>
+14. When multiple if statements of number-type (e.g. int,...) are going to be evaluated.
+15. break; be forgotten often.
+16. Part 1: initialises the count variable; Part 2: declares when the loop ends part3: how many steps are used for cpunting up . left to rigth
+17. for: when smt is iterated with each step
+    while: a function is repeated several times
+18. convert -> int
+19. 
+20. use piece of code in other classes
+    or several times
+21. increase it
+22. concatenate ist

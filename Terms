@@ -1,0 +1,9 @@
+<<: Ouput operator
+C++: Object-oriented programming language, kind of an extension to C
+comment: sth that is ignored by the compiler
+compiler: translates the human readable source code into machine code
+#include: it makes facilities from the named file available
+linker: links the seperate parts (code that you wrote yourself and the libraries) together
+library: simply some code, usually written by others
+header: Is a file that uses definitions of terms
+main(): name of a function. Every C/C++ program so one. It's the start point
