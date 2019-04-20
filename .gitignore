@@ -33,3 +33,6 @@
 
 # vscode directory
 .vscode
+
+# Code runner
+tempCodeRunnerFile.cpp
