@@ -1,5 +1,5 @@
 #include "my.h"
-#include "my.cpp"
+// #include "my.cpp"
 
 int main()
 {
