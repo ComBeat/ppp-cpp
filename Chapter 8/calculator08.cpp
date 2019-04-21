@@ -288,18 +288,18 @@ Token_stream ts;
 Symbol_Table st;
 
 //provide expression() and faculty_calculation() for primary()
-double expression();
+double expression(Token_stream &ts);
 
 int factorial_calculation(double d);
 
-double primary()
+double primary(Token_stream &ts)
 {
 	Token t = ts.get();
 	switch (t.kind)
 	{
 	case '(':
 	{
-		double d = expression();
+		double d = expression(ts);
 		t = ts.get();
 		if (t.kind != ')')
 			error("'(' expected");
@@ -308,13 +308,13 @@ double primary()
 	case 'k':
 		return kvalue;
 	case '-':
-		return -primary();
+		return -primary(ts);
 	case sqrtchar:
 	{
 		t = ts.get();
 		if (t.kind != '(')
 			error("'(' expected");
-		double d = expression();
+		double d = expression(ts);
 		if (d < 0)
 			error("Number lower than 0");
 		t = ts.get();
@@ -327,7 +327,7 @@ double primary()
 		t = ts.get();
 		if (t.kind != '(')
 			error("'(' expected");
-		double d = expression();
+		double d = expression(ts);
 		t = ts.get();
 		if (t.kind != ',')
 			error("',' expected");
@@ -360,7 +360,7 @@ double primary()
 		//Handle Assignment operation
 		if (t2.kind == assignmentchar)
 		{
-			double d = expression();
+			double d = expression(ts);
 			st.set(t.name, d);
 			return d;
 		}
@@ -377,20 +377,21 @@ double primary()
 	return 0;
 }
 
-double term()
+double term(Token_stream &ts)
 {
-	double left = primary();
+	double left = primary(ts);
+	Token t = ts.get();
 	while (true)
 	{
 		Token t = ts.get();
 		switch (t.kind)
 		{
 		case '*':
-			left *= primary();
+			left *= primary(ts);
 			break;
 		case '/':
 		{
-			double d = primary();
+			double d = primary(ts);
 			if (d == 0)
 				error("divide by zero");
 			left /= d;
@@ -398,7 +399,7 @@ double term()
 		}
 		case '%':
 		{
-			double d = primary();
+			double d = primary(ts);
 			if (d == 0)
 				error("%: divide by zero");
 			left = fmod(left, d);
@@ -412,19 +413,20 @@ double term()
 	}
 }
 
-double expression()
+double expression(Token_stream &ts)
 {
-	double left = term();
+	double left = term(ts);
+	Token t = ts.get();
 	while (true)
 	{
 		Token t = ts.get();
 		switch (t.kind)
 		{
 		case '+':
-			left += term();
+			left += term(ts);
 			break;
 		case '-':
-			left -= term();
+			left -= term(ts);
 			break;
 		default:
 			ts.unget(t);
@@ -444,7 +446,7 @@ double declaration(bool b)
 	Token t2 = ts.get();
 	if (t2.kind != '=')
 		error("= missing in declaration of ", name);
-	double d = expression();
+	double d = expression(ts);
 	st.declare(name, d, b);
 	return d;
 }
@@ -460,7 +462,7 @@ double statement()
 		return declaration(true);
 	default:
 		ts.unget(t);
-		return expression();
+		return expression(ts);
 	}
 }
 
