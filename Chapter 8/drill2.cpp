@@ -1,8 +1,5 @@
-#include "../../std_lib_facilities.h"
+#include "../std_lib_facilities.h"
 
-/**
- * 
- */
 void swap_v(int a, int b)
 {
 	int temp;
@@ -53,7 +50,7 @@ int main()
 	const int cx = 7;
 	const int cy = 9;
 
-	cout << cx << '\n'
+	/* cout << cx << '\n'
 		 << cy << '\n'
 		 << endl;
 	swap_v(cx, cy);
@@ -65,7 +62,7 @@ int main()
 
 	cout << cx << '\n'
 		 << cy << '\n'
-		 << endl;
+		 << endl; */
 
 	//implicit conversion fom double to int
 	//doesn't compile with swap_(c)r, because cannot bind non-const int& to int
