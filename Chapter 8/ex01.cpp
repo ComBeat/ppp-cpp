@@ -1,17 +1,5 @@
 /**
- * 1: Done
- * 2: Done
- * 3: Done
- * 4: Done
- * 5: Done
- * 6: Done
- * 7: Done
- * 8: Done
- * 9: Faculty-function: Done with basic functionality
- *    Other ideas:      history of calculations to scroll through with arrow keys
- *                      show binary value if possible
- * 10: Not finished
- * 11: Done (kind of *cough* Chapter 4 - ex14.cpp *cough*) and Chapter 5 - ex07.cpp
+ * 1: I don't know what is requested with the istream
  */
 
 /*
@@ -64,7 +52,7 @@
     -1e; e.g. puts the program into a "Bad token" loop
 */
 
-#include "std_lib_facilities.h"
+#include "../std_lib_facilities.h"
 
 //Simple Token
 struct Token
@@ -87,6 +75,7 @@ class Token_stream
 	Token buffer;
 
   public:
+	Token_stream(istream &) : full(0), buffer(0) {}
 	Token_stream() : full(0), buffer(0) {} //empty Token_stream
 
 	Token get();
@@ -284,7 +273,7 @@ double Symbol_Table::declare(string name, double value, bool b)
 }
 
 //Global instances
-Token_stream ts;
+// Token_stream ts;
 Symbol_Table st;
 
 //provide expression() and faculty_calculation() for primary()
@@ -380,7 +369,6 @@ double primary(Token_stream &ts)
 double term(Token_stream &ts)
 {
 	double left = primary(ts);
-	Token t = ts.get();
 	while (true)
 	{
 		Token t = ts.get();
@@ -416,7 +404,6 @@ double term(Token_stream &ts)
 double expression(Token_stream &ts)
 {
 	double left = term(ts);
-	Token t = ts.get();
 	while (true)
 	{
 		Token t = ts.get();
@@ -435,7 +422,7 @@ double expression(Token_stream &ts)
 	}
 }
 
-double declaration(bool b)
+double declaration(bool b, Token_stream &ts)
 {
 	Token t = ts.get();
 	if (t.kind != 'a')
@@ -451,15 +438,15 @@ double declaration(bool b)
 	return d;
 }
 
-double statement()
+double statement(Token_stream &ts)
 {
 	Token t = ts.get();
 	switch (t.kind)
 	{
 	case letchar:
-		return declaration(false);
+		return declaration(false, ts);
 	case constchar:
-		return declaration(true);
+		return declaration(true, ts);
 	default:
 		ts.unget(t);
 		return expression(ts);
@@ -490,7 +477,7 @@ void show_help()
 		 << "quit\t\t\tquit the program\n";
 }
 
-void clean_up_mess()
+void clean_up_mess(Token_stream &ts)
 {
 	ts.ignore(printchar);
 }
@@ -500,6 +487,7 @@ const string result = "= ";
 
 void calculate()
 {
+	Token_stream ts;
 	while (true)
 	{
 		try
@@ -515,13 +503,13 @@ void calculate()
 				if (t.kind == quitchar)
 					return;
 				ts.unget(t);
-				cout << result << statement() << endl;
+				cout << result << statement(ts) << endl;
 			}
 		}
 		catch (runtime_error &e)
 		{
 			cerr << e.what() << endl;
-			clean_up_mess();
+			clean_up_mess(ts);
 		}
 	}
 }
