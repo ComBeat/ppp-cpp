@@ -17,16 +17,16 @@
 // 		"fly"
 // 		"swim"
 
-#include <std_lib_facilities.h>
+#include "../std_lib_facilities.h"
 
 class String_stream
 {
-  public:
+public:
 	String_stream();
 	string get();
 	void put_back(string str);
 
-  private:
+private:
 	bool full;
 	string buffer;
 };

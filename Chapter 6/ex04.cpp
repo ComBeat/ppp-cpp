@@ -1,8 +1,8 @@
-#include <std_lib_facilities.h>
+#include "../std_lib_facilities.h"
 
 class Name_value
 {
-  public:
+public:
 	string name;
 	int score;
 	Name_value(string name, int score)
