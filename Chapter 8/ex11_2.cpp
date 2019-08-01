@@ -1,5 +1,8 @@
 /**
  * Alternative with struct
+ * 
+ * Compile time with getProperties:  2.04s
+ * Compile time with myVector usage: 1.95s
  */
 
 #include "../std_lib_facilities.h"
@@ -56,10 +59,22 @@ int medianValue(vector<int> &v)
 	return v[v.size() / 2];
 }
 
+/* VectorProperties getProperties(vector<int> &v)
+{
+	VectorProperties vectorProperties;
+
+	vectorProperties.max = maxValue(v);
+	vectorProperties.min = minValue(v);
+	vectorProperties.mean = meanValue(v);
+	vectorProperties.median = medianValue(v);
+
+	return vectorProperties;
+} */
+
 int main()
 {
 	vector<int> values = {4325, 1342, 3562334, 625, 832375};
-	VectorProperties vectorProperties;
+	// VectorProperties vectorProperties = getProperties(values);
 
 	myVector.max = maxValue(values);
 	myVector.min = minValue(values);
@@ -70,4 +85,9 @@ int main()
 	cout << "Minimum:\t" << myVector.min << endl;
 	cout << "Mean:\t\t" << myVector.mean << endl;
 	cout << "Median:\t\t" << myVector.median << endl;
+
+	/* cout << "Maximum:\t" << vectorProperties.max << endl;
+	cout << "Minimum:\t" << vectorProperties.min << endl;
+	cout << "Mean:\t\t" << vectorProperties.mean << endl;
+	cout << "Median:\t\t" << vectorProperties.median << endl; */
 }
