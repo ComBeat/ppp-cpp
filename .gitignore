@@ -37,9 +37,6 @@
 # Code runner
 tempCodeRunnerFile.cpp
 
-#Example code from the edition (www.stroustrup.com/Programming/Programming-code.zip)
-example_code/
-
 # Created by https://www.gitignore.io/api/clion
 # Edit at https://www.gitignore.io/?templates=clion
 
