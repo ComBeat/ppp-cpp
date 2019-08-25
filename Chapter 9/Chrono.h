@@ -96,3 +96,7 @@ void add_day(Date &date, int n);
 
 ostream &operator<<(ostream &os, const Date &d);
 } // namespace Chrono941
+
+namespace Chrono942
+{
+}
