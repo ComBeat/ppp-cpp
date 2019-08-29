@@ -99,4 +99,73 @@ ostream &operator<<(ostream &os, const Date &d);
 
 namespace Chrono942
 {
+struct Date
+{
+	int year, month, day;
+	Date(int year, int month, int day);
+	void add_day(int n);
+};
+
+ostream &operator<<(ostream &os, const Date &d);
+} // namespace Chrono942
+
+namespace Chrono943
+{
+class Date
+{
+	int year, month, day;
+
+public:
+	Date(int y, int m, int d);
+	void add_day(int n);
+	int get_year() { return year; }
+	int get_month() { return month; }
+	int get_day() { return day; }
+};
+
+ostream &operator<<(ostream &os, Date &d);
+} // namespace Chrono943
+
+namespace Chrono971 {
+    class Date {
+    public:
+        enum Month {
+            jan=1, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec
+        };
+
+        Date(int y, Month m, int d);
+        void add_day(int n);
+        int get_year() { return year; }
+        Month get_month() { return month; }
+        int get_day() { return day; }
+    private:
+        int year;
+        Month month;
+        int day;
+    };
+
+    ostream& operator<<(ostream& os, Date& d);  // Date& d not const on purpose
+}   // Chrono971
+
+namespace Chrono974{
+class Date{
+public:
+enum Month {
+            jan=1, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec
+        };
+	//...
+	int get_year() const;
+	Month get_month() const;
+	int get_day() const;
+
+	void add_year(int n);
+	void add_month(int n);
+	void add_day(int n);
+private:
+	int year;
+	Month month;
+	int day;
+};
+
+    ostream& operator<<(ostream& os, Date& d);  // Date& d not const on purpose
 }
