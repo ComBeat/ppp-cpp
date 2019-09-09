@@ -37,7 +37,8 @@ void chrono942()
 	cout << "Invalid date: " << invalid_date << endl; //isn't called
 }
 
-void chrono943(){
+void chrono943()
+{
 	using namespace Chrono943;
 
 	Date today{2005, 06, 25};
@@ -52,7 +53,8 @@ void chrono943(){
 	cout << "Invalid date: " << invalid_date << endl; //isn't called
 }
 
-void chrono971(){
+void chrono971()
+{
 	using namespace Chrono971;
 
 	Date today{2005, Date::jun, 25};

@@ -32,7 +32,7 @@ ostream &operator<<(ostream &os, const Date &d)
 
 namespace Chrono942
 {
-Date::Date(int y, int m, int d):year{y}, month{m}, day{d}
+Date::Date(int y, int m, int d) : year{y}, month{m}, day{d}
 {
 	if (m < 1 || m > 12 || d < 1 || d > 31)
 		error("Invalid date!");
@@ -80,14 +80,16 @@ ostream &operator<<(ostream &os, Date &d)
 }
 } // namespace Chrono943
 
-namespace Chrono971{
+namespace Chrono971
+{
 Date::Date(int y, Month m, int d) : year(y), month(m), day(d)
 {
-	if(m<Month::jan||m>Month::dec||d<1||d>31)
+	if (m < Month::jan || m > Month::dec || d < 1 || d > 31)
 		error("Date is invalid!");
-} 
+}
 
-void Date::add_day(int n){
+void Date::add_day(int n)
+{
 	if (day + n > 31)
 		cout << "Day becomes invalid!" << endl;
 	else
@@ -101,4 +103,8 @@ ostream &operator<<(ostream &os, Date &d)
 			  << ", " << d.get_day()
 			  << ')';
 }
+} // namespace Chrono971
+
+namespace Chrono974
+{
 }
