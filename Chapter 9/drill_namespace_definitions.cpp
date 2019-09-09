@@ -107,4 +107,50 @@ ostream &operator<<(ostream &os, Date &d)
 
 namespace Chrono974
 {
+Date::Date(int y, Month m, int d) : year(y), month(m), day(d)
+{
+	if (m < Month::jan || m > Month::dec || d < 1 || d > 31)
+		error("Date is invalid!");
 }
+
+int Date::get_year() const
+{
+	return year;
+}
+
+Date::Month Date::get_month() const
+{
+	return month;
+}
+
+int Date::get_day() const
+{
+	return day;
+}
+
+void Date::add_year(int y)
+{
+	year += y;
+}
+
+void Date::add_month(int m)
+{
+	month = (m == Month::dec) ? Month::jan : Month(int(m) + 1);
+}
+
+void Date::add_day(int d)
+{
+	int day_temp = day += d;
+	if (day_temp > 31)
+		day = 1;
+}
+
+ostream &operator<<(ostream &os, Date &d)
+{
+	return os << '(' << d.get_year()
+			  << ", " << d.get_month()
+			  << ", " << d.get_day()
+			  << ')';
+}
+} // namespace Chrono974
+  // ← To Be Continued
