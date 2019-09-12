@@ -21,6 +21,13 @@ ostream &operator<<(ostream &os, Name_pairs &np)
 	return os;
 }
 
+bool &operator==(Name_pairs &np1, Name_pairs &np2)
+{
+	// bool tmp = false;
+	// if (np1.get_name().size() != np2.get_name().size() || np1.get_age().size() != np2.get_age().size())
+	// 	return tmp;
+}
+
 //Name_pairs definition
 void Name_pairs::read_names()
 {
