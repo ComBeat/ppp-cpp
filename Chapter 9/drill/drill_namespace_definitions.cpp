@@ -153,4 +153,3 @@ ostream &operator<<(ostream &os, Date &d)
 			  << ')';
 }
 } // namespace Chrono974
-  // ← To Be Continued
