@@ -23,9 +23,23 @@ ostream &operator<<(ostream &os, Name_pairs &np)
 
 bool &operator==(Name_pairs &np1, Name_pairs &np2)
 {
-	// bool tmp = false;
-	// if (np1.get_name().size() != np2.get_name().size() || np1.get_age().size() != np2.get_age().size())
-	// 	return tmp;
+	bool value = false;
+	if (np1.get_name().size() != np2.get_name().size() || np1.get_age().size() != np2.get_age().size())
+		return value = false;
+	for (int i = 0; i < np1.get_name().size(); i++)
+		if (np1.get_name()[i] != np2.get_name()[i])
+			return value = false;
+	for (int i = 0; i < np1.get_age().size(); i++)
+		if (np1.get_age()[i] != np2.get_age()[i])
+			return value = false;
+
+	return value = true;
+}
+
+bool &operator!=(Name_pairs &np1, Name_pairs &np2)
+{
+	bool value = !(np1 == np2);
+	return value;
 }
 
 //Name_pairs definition
