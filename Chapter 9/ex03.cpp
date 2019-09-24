@@ -9,8 +9,8 @@ public:
 	void read_names();
 	void read_ages();
 	void sort();
-	vector<string> get_name();
-	vector<double> get_age();
+	const vector<string> get_name() const { return name; }
+	const vector<double> get_age() const { return age; }
 };
 
 ostream &operator<<(ostream &os, Name_pairs &np)
@@ -21,25 +21,43 @@ ostream &operator<<(ostream &os, Name_pairs &np)
 	return os;
 }
 
-bool &operator==(Name_pairs &np1, Name_pairs &np2)
+bool operator==(const Name_pairs &np1, const Name_pairs &np2)
 {
-	bool value = false;
+	// bool value = false;
 	if (np1.get_name().size() != np2.get_name().size() || np1.get_age().size() != np2.get_age().size())
-		return value = false;
+		return false;
 	for (int i = 0; i < np1.get_name().size(); i++)
 		if (np1.get_name()[i] != np2.get_name()[i])
-			return value = false;
+			return false;
 	for (int i = 0; i < np1.get_age().size(); i++)
 		if (np1.get_age()[i] != np2.get_age()[i])
-			return value = false;
+			return false;
 
-	return value = true;
+	return true;
 }
 
-bool &operator!=(Name_pairs &np1, Name_pairs &np2)
+/* bool operator==(const Name_pairs &a, const Name_pairs &b)
 {
-	bool value = !(np1 == np2);
-	return value;
+	if (a.get_name().size() != b.get_name().size() || a.get_age().size() != b.get_age().size())
+		return false;
+	bool equal = true;
+	for (int i = 0; i < a.get_name().size(); ++i)
+	{
+		if (a.get_name()[i] != b.get_name()[i])
+			return false;
+	}
+	for (int i = 0; i < a.get_age().size(); ++i)
+	{
+		if (a.get_age()[i] != b.get_age()[i])
+			return false;
+	}
+	return true;
+} */
+
+bool operator!=(const Name_pairs &np1, const Name_pairs &np2)
+{
+	// bool value = !(np1 == np2);
+	return !(np1 == np2);
 }
 
 //Name_pairs definition
@@ -85,16 +103,6 @@ void Name_pairs::sort()
 		for (int j = 0; j < name_presort.size(); j++)
 			if (name[i] == name_presort[j])
 				age[i] = age_copy[j];
-}
-
-vector<string> Name_pairs::get_name()
-{
-	return name;
-}
-
-vector<double> Name_pairs::get_age()
-{
-	return age;
 }
 
 int main()
