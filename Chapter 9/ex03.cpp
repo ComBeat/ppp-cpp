@@ -23,7 +23,6 @@ ostream &operator<<(ostream &os, Name_pairs &np)
 
 bool operator==(const Name_pairs &np1, const Name_pairs &np2)
 {
-	// bool value = false;
 	if (np1.get_name().size() != np2.get_name().size() || np1.get_age().size() != np2.get_age().size())
 		return false;
 	for (int i = 0; i < np1.get_name().size(); i++)
@@ -36,27 +35,8 @@ bool operator==(const Name_pairs &np1, const Name_pairs &np2)
 	return true;
 }
 
-/* bool operator==(const Name_pairs &a, const Name_pairs &b)
-{
-	if (a.get_name().size() != b.get_name().size() || a.get_age().size() != b.get_age().size())
-		return false;
-	bool equal = true;
-	for (int i = 0; i < a.get_name().size(); ++i)
-	{
-		if (a.get_name()[i] != b.get_name()[i])
-			return false;
-	}
-	for (int i = 0; i < a.get_age().size(); ++i)
-	{
-		if (a.get_age()[i] != b.get_age()[i])
-			return false;
-	}
-	return true;
-} */
-
 bool operator!=(const Name_pairs &np1, const Name_pairs &np2)
 {
-	// bool value = !(np1 == np2);
 	return !(np1 == np2);
 }
 
