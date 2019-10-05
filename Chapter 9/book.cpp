@@ -15,16 +15,17 @@ ostream &operator<<(ostream &os, const Book &book) {
               << "\nISBN: " << book.get_isbn();
 }
 
-Book::Book() : isbn{"0-0-0-0"}, title{""}, author{""}, cp_date{""} {}
+Book::Book() : isbn{"0-0-0-0"}, title{""}, author{""}, genre{fiction}, cp_date{"01-01-1970"}, checked_in{true} {}
 
-Book::Book(int isbn1, int isbn2, int isbn3, char isbn4, string title, string author, string cp_date) {
+Book::Book(int isbn1, int isbn2, int isbn3, char isbn4, string title, string author, Genre g, string cp_date) {
     set_isbn(isbn1, isbn2, isbn3, isbn4);
     set_title(title);
     set_author(author);
+    set_genre(g);
     set_cp_date(cp_date);
 }
 
-bool Book::isbn_validity(const string &to_check) {
+/* bool Book::isbn_validity(const string &to_check) {
     int dash_counter = 0;
 
     for (int i = 0; i < to_check.size(); i++) {
@@ -50,7 +51,7 @@ bool Book::isbn_validity(const string &to_check) {
         }
     }
     return true;
-}
+} */
 
 void Book::set_isbn(int isbn1, int isbn2, int isbn3, char isbn4) {
     isbn = isbn1 << '-' << isbn2 << '-' << isbn3 << '-' << isbn4;
