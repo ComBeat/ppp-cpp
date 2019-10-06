@@ -1,24 +1,21 @@
 ﻿---
 BasedOnStyle: Google
-AccessModifierOffset: '0'
+AccessModifierOffset: '-2'
 AlignAfterOpenBracket: Align
 AlignConsecutiveAssignments: 'true'
 AlignConsecutiveDeclarations: 'true'
 AlignEscapedNewlines: DontAlign
 AlignOperands: 'true'
 AlignTrailingComments: 'true'
-AllowAllArgumentsOnNextLine: 'true'
-AllowAllConstructorInitializersOnNextLine: 'true'
 AllowAllParametersOfDeclarationOnNextLine: 'true'
 AllowShortBlocksOnASingleLine: 'true'
 AllowShortCaseLabelsOnASingleLine: 'true'
 AllowShortFunctionsOnASingleLine: InlineOnly
-AllowShortIfStatementsOnASingleLine: Always
-AllowShortLambdasOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: 'true'
 AllowShortLoopsOnASingleLine: 'true'
 AlwaysBreakAfterReturnType: None
 AlwaysBreakBeforeMultilineStrings: 'false'
-AlwaysBreakTemplateDeclarations: 'No'
+AlwaysBreakTemplateDeclarations: 'false'
 BreakAfterJavaFieldAnnotations: 'true'
 BreakBeforeBraces: Custom
 BraceWrapping:
@@ -26,7 +23,6 @@ BraceWrapping:
   AfterNamespace: true
 BreakBeforeTernaryOperators: 'true'
 BreakConstructorInitializers: BeforeComma
-BreakInheritanceList: BeforeComma
 BreakStringLiterals: 'true'
 ColumnLimit: '0'
 CompactNamespaces: 'false'
@@ -36,6 +32,7 @@ Cpp11BracedListStyle: 'true'
 FixNamespaceComments: 'true'
 IndentCaseLabels: 'true'
 IndentPPDirectives: None
+IndentWidth: 4
 IndentWrappedFunctionNames: 'true'
 JavaScriptWrapImports: 'true'
 KeepEmptyLinesAtTheStartOfBlocks: 'false'
@@ -47,14 +44,9 @@ ReflowComments: 'true'
 SortIncludes: 'true'
 SortUsingDeclarations: 'true'
 SpaceAfterCStyleCast: 'false'
-SpaceAfterLogicalNot: 'false'
 SpaceAfterTemplateKeyword: 'false'
 SpaceBeforeAssignmentOperators: 'true'
-SpaceBeforeCpp11BracedList: 'false'
-SpaceBeforeCtorInitializerColon: 'true'
-SpaceBeforeInheritanceColon: 'true'
 SpaceBeforeParens: ControlStatements
-SpaceBeforeRangeBasedForLoopColon: 'true'
 SpaceInEmptyParentheses: 'false'
 SpacesBeforeTrailingComments: '2'
 SpacesInAngles: 'false'
