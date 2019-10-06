@@ -20,4 +20,11 @@ bool Patron::owes_fee() {
     else
         return false;
 }
+
+void Patron::adjust_library_fees(double fee_new) {
+    if (library_fees + fee_new >= 0.0)
+        library_fees += fee_new;
+    else
+        error("Invalid fee");
+}
 }  // namespace Patron

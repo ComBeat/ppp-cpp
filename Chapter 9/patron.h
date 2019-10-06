@@ -14,6 +14,7 @@ class Patron
     Patron(string, string, int, double);
 
     bool owes_fee();
+    void adjust_library_fees(double);
 
     string get_surname() { return surname; }
     void   set_surname(string sname) { surname = sname; }
@@ -21,6 +22,5 @@ class Patron
     void   set_prename(string pname) { prename = pname; }
     int    get_card_number() { return card_number; }
     double get_library_fees() { return library_fees; }
-    void   set_library_fees(double fees) { library_fees = fees; }
 };
 }  // namespace Patron
