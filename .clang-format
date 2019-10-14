@@ -21,6 +21,7 @@ BreakBeforeBraces: Custom
 BraceWrapping:
   AfterClass: true
   AfterNamespace: true
+  AfterStruct: true
 BreakBeforeTernaryOperators: 'true'
 BreakConstructorInitializers: BeforeComma
 BreakInheritanceList: BeforeComma
