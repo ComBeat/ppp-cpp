@@ -1,10 +1,6 @@
-
-//
-// This is example code from Chapter 9.8 "The Date class" of
-// "Programming -- Principles and Practice Using C++" by Bjarne Stroustrup
-//
-
 #include "chrono.h"
+
+#include <vector>
 
 namespace Chrono
 {
@@ -33,13 +29,33 @@ Date::Date()
 //------------------------------------------------------------------------------
 
 void Date::add_day(int n) {
-    // ...
+    Month         current_month = month();
+    vector<Month> days31{jan, mar, may, jul, aug, oct, dec};
+    vector<Month> days30{apr, jun, sep, nov};
+
+    if (find(days31.begin(), days31.end(), current_month) != days31.end()) {
+        if (d + n > 31)
+            add_month(1);
+        d = (d + n) % 31;
+    } else if (find(days30.begin(), days30.end(), current_month) != days30.end()) {
+        if (d + n > 30)
+            add_month(1);
+        d = (d + n) % 30;
+    } else if (current_month == feb) {
+        int days_feb;
+        leapyear(year()) ? days_feb = 29 : days_feb = 28;
+
+        if (d + n > days_feb)
+            add_month(1);
+        d = (d + n) % days_feb;
+    }
 }
 
 //------------------------------------------------------------------------------
 
 void Date::add_month(int n) {
-    // ...
+    for (int it = jan; it <= n; it++)
+        m = static_cast<Month>(it);
 }
 
 //------------------------------------------------------------------------------
@@ -132,7 +148,8 @@ istream& operator>>(istream& is, Date& dd) {
 
 //------------------------------------------------------------------------------
 
-enum Day {
+enum Day
+{
     sunday,
     monday,
     tuesday,
@@ -159,7 +176,7 @@ Date next_Sunday(const Date& d) {
 //------------------------------------------------------------------------------
 
 Date next_weekday(const Date& d) {
-    // ...
+    // ..
     return d;
 }
 

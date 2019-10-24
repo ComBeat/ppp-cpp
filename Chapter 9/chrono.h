@@ -17,7 +17,8 @@ namespace Chrono
 class Date
 {
   public:
-    enum Month {
+    enum Month
+    {
         jan = 1,
         feb,
         mar,

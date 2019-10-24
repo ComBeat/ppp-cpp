@@ -19,6 +19,7 @@ AlwaysBreakTemplateDeclarations: 'No'
 BreakAfterJavaFieldAnnotations: 'true'
 BreakBeforeBraces: Custom
 BraceWrapping:
+  AfterEnum: true
   AfterClass: true
   AfterNamespace: true
   AfterStruct: true
