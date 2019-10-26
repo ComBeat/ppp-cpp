@@ -40,7 +40,7 @@ void Date::add_day(int n) {
     else if (find(days30.begin(), days30.end(), current_month) != days30.end())
         days_of_month = 30;
     else if (current_month == feb)
-        leapyear(year()) ? days_of_month = 29 : days_of_month = 28;
+        days_of_month = leapyear(year()) ? 29 : 28;
     if (d + n > days_of_month)
         add_month(1);
     d = (d + n) % days_of_month;
