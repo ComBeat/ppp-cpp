@@ -20,5 +20,5 @@ Rational operator+(const Rational, const Rational);
 Rational operator-(const Rational, const Rational);
 Rational operator*(const Rational, const Rational);
 Rational operator/(const Rational, const Rational);
-Rational operator==(const Rational, const Rational);
+bool operator==(const Rational, const Rational);
 }  // namespace Rational
