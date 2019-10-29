@@ -16,9 +16,9 @@ class Rational
     int    get_denominator() const { return denominator; }
 };
 
-Rational operator+(const Rational, const Rational);
-Rational operator-(const Rational, const Rational);
-Rational operator*(const Rational, const Rational);
-Rational operator/(const Rational, const Rational);
-bool operator==(const Rational, const Rational);
+Rational operator+(const Rational &r0, const Rational &r1);
+Rational operator-(const Rational &r0, const Rational &r1);
+Rational operator*(const Rational &r0, const Rational &r1);
+Rational operator/(const Rational &r0, const Rational &r1);
+bool operator==(const Rational &r0, const Rational &r1);
 }  // namespace Rational

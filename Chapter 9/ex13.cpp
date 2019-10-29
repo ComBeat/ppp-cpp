@@ -1,7 +1,5 @@
 #include "ex13.h"
 
-#include "../std_lib_facilities.h"
-
 namespace Rational
 {
 Rational::Rational(int n, int d) {
@@ -41,7 +39,7 @@ Rational operator/(const Rational &r0, const Rational &r1) {
     return Rational{r0.get_numerator() * r1.get_denominator(), r0.get_denominator() * r1.get_numerator()};
 }
 
-bool operator==(const Rational &r0, Rational &r1) {
+bool operator==(const Rational &r0, const Rational &r1) {
     return (r0.get_numerator() == r1.get_numerator()) && (r0.get_denominator() == r1.get_denominator());
 }
 }  // namespace Rational
