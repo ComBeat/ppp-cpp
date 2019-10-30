@@ -11,7 +11,7 @@ class Rational
     Rational()
         : numerator(0), denominator(1){};
     Rational(int n, int d);
-    double to_double() { return numerator / denominator; }
+    double to_double() const { return numerator / denominator; }
     int    get_numerator() const { return numerator; }
     int    get_denominator() const { return denominator; }
 };

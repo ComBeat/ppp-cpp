@@ -7,6 +7,8 @@ Rational::Rational(int n, int d) {
         denominator = d;
     else
         error("Denominator cannot be 0");
+
+    numerator = n;
 }
 
 Rational operator+(const Rational &r0, const Rational &r1) {
@@ -15,7 +17,7 @@ Rational operator+(const Rational &r0, const Rational &r1) {
     if (r0.get_denominator() == r1.get_denominator())
         rat = Rational{r0.get_numerator() + r1.get_numerator(), r0.get_denominator()};
     else
-        rat = Rational{r0.get_numerator() * r1.get_denominator() + r1.get_numerator() * r0.get_denominator(), r0.get_denominator() * r1.get_denominator()};
+        rat = Rational{(r0.get_numerator() * r1.get_denominator()) + (r1.get_numerator() * r0.get_denominator()), r0.get_denominator() * r1.get_denominator()};
 
     return rat;
 }
@@ -40,6 +42,6 @@ Rational operator/(const Rational &r0, const Rational &r1) {
 }
 
 bool operator==(const Rational &r0, const Rational &r1) {
-    return (r0.get_numerator() == r1.get_numerator()) && (r0.get_denominator() == r1.get_denominator());
+    return r0.to_double() == r1.to_double();
 }
 }  // namespace Rational
