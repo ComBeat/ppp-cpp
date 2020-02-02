@@ -32,6 +32,7 @@ CompactNamespaces: 'false'
 ConstructorInitializerAllOnOneLineOrOnePerLine: 'true'
 ContinuationIndentWidth: '0'
 Cpp11BracedListStyle: 'true'
+DerivePointerAlignment: 'true'
 FixNamespaceComments: 'true'
 IndentCaseLabels: 'true'
 IndentPPDirectives: None
@@ -42,7 +43,7 @@ KeepEmptyLinesAtTheStartOfBlocks: 'false'
 Language: Cpp
 MaxEmptyLinesToKeep: '1'
 NamespaceIndentation: Inner
-PointerAlignment: Right
+PointerAlignment: Left
 ReflowComments: 'true'
 SortIncludes: 'true'
 SortUsingDeclarations: 'true'
